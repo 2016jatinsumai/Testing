@@ -1118,7 +1118,7 @@ a {
       .swiper-container .swiper-slide .image-wrap .image-info h2 {
         color: #fff; }
     .swiper-container .swiper-slide .image-wrap:hover:before {
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.6);
       content: ""; }
   .swiper-container .btn-outline-white {
     border-color: #fff;
