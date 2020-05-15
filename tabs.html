@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <section class="about_us single_about_padding" style="margin-bottom: 60px">
+    <div class="container-fluid">
+      <div class="row justify-content-between align-items-center">
+        <div class="col-md-12 col-lg-12">
+          <form action="<?php echo BASEURL?>helper/routing.php" method="post" id="questionnaire_form">
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <nav class="nav nav-pills flex-column flex-sm-row">
+                  <a class="d-none d-sm-inline-block btn btn-success shadow-sm mr-3" data-toggle="tab"
+                    href="#disabilities" role="tab" aria-controls="disabilities" aria-selected="true"><i
+                      class="fa fa-wheelchair pr-2" aria-hidden="true"></i>Disabilities</a>
+                  <a class="d-none d-sm-inline-block btn btn-dark shadow-sm mr-3" data-toggle="tab" href="#behaviour"
+                    role="tab" aria-controls="behaviour" aria-selected="true"><i class="fa fa-user pr-2"
+                      aria-hidden="true"></i>Behaviour</a>
+                  <a class="d-none d-sm-inline-block btn btn-primary shadow-sm mr-3" data-toggle="tab" href="#growth"
+                    role="tab" aria-controls="growth" aria-selected="true"><i class="fa fa-line-chart pr-2"
+                      aria-hidden="true"></i>Growth</a>
+                  <button type="submit" class="btn btn-warning float-right"><i class="fa fa-file-text-o pr-2"
+                      aria-hidden="true"></i>Predict Result</button>
+                </nav>
+              </div>
+
+              <div class="card-body">
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="disabilities" role="tabpanel"
+                    aria-labelledby="disabilities-tab">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <div class="custom-control custom-checkbox mb-3 ">
+                          <input type="checkbox" class="custom-control-input" id="<?php echo $temp;?>" name="problems[]"
+                            value="">
+                          <label class="custom-control-label" for="<?php echo $temp;?>"></label>
+                        </div>
+                      </div>
+                    </div>
+                    <a class="d-none d-sm-inline-block btn btn-dark shadow-sm mr-3 float-right" data-toggle="tab"
+                      href="#behaviour" role="tab" aria-controls="behaviour" aria-selected="true"><i
+                        class="fa fa-user pr-2" aria-hidden="true"></i>Behaviour <i
+                        class="fa fa-angle-double-right pl-3" aria-hidden="true"></i></a>
+                  </div>
+                  <div class="tab-pane fade" id="behaviour" role="tabpanel" aria-labelledby="behaviour-tab">
+                    <div class="row">
+                      <?php 
+                        $temps = explode(",", $data["behaviour"]);
+                        foreach($temps as $temp){
+                      ?>
+                      <div class="col-md-2">
+                        <div class="custom-control custom-checkbox mb-3 ">
+                          <input type="checkbox" class="custom-control-input" id="<?php echo $temp;?>" name="problems[]"
+                            value="<?php echo $temp;?>">
+                          <label class="custom-control-label" for="<?php echo $temp;?>"><?php echo $temp;?></label>
+                        </div>
+                      </div>
+                      <?php } ?>
+                    </div>
+                    <a class="d-none d-sm-inline-block btn btn-primary shadow-sm mr-3 float-right" data-toggle="tab"
+                      href="#growth" role="tab" aria-controls="growth" aria-selected="true"><i
+                        class="fa fa-line-chart pr-2" aria-hidden="true"></i>Growth <i
+                        class="fa fa-angle-double-right pl-3" aria-hidden="true"></i></a>
+                  </div>
+                  <div class="tab-pane fade" id="growth" role="tabpanel" aria-labelledby="growth-tab">
+                    <div class="row">
+                      <?php 
+                          $temps = explode(",", $data["growth"]);
+                          foreach($temps as $temp){
+                        ?>
+                      <div class="col-md-2">
+                        <div class="custom-control custom-checkbox mb-3 ">
+                          <input type="checkbox" class="custom-control-input" id="<?php echo $temp;?>" name="problems[]"
+                            value="<?php echo $temp;?>">
+                          <label class="custom-control-label" for="<?php echo $temp;?>"><?php echo $temp;?></label>
+                        </div>
+                      </div>
+                      <?php } ?>
+                    </div>
+                    <input type="hidden" name="predict_result_questionnaire">
+                    <button type="submit" class="btn btn-warning float-right"><i class="fa fa-file-text-o pr-2"
+                        aria-hidden="true"></i>Predict Result</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+  </section>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
