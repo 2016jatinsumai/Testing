@@ -18,7 +18,7 @@ var fps_counter = {
 
     if (times.length > this.span + 1) {
       times.shift(); // ditch the oldest time
-      seconds = (times[times.length - 1] - times[0]) / 1000;
+      seconds = (times[times.length - 1] - times[0]) / 100;
       return Math.round(this.span / seconds);
     } else return null;
   },
@@ -80,7 +80,7 @@ function animateIn($item, $block) {
   var $nz = -4000 + getRandomInt(4000)
 
   var $s = 1.5 + (getRandomInt(10) * .1)
-  var $d = 1 - (getRandomInt(8) * .1)
+  var $d = 0.5;
 
   TweenMax.set($item, {
     autoAlpha: 1,
